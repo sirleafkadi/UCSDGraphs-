@@ -122,7 +122,18 @@ public abstract class Graph {
 	 */
 	public List<Integer> degreeSequence() {
 		// XXX: Implement in part 1 of week 2
-		return null;
+		
+		ArrayList<Integer> listOfDegrees = new ArrayList<>();
+		
+		for (int i = 0; i < numVertices; i++) {
+		   listOfDegrees.add(getNeighbors(i).size() + getInNeighbors(i).size());
+		}
+		Collections.sort(listOfDegrees);
+		Collections.reverse(listOfDegrees);
+		return listOfDegrees;
+
+		
+	
 	}
 	
 	/**
@@ -226,6 +237,38 @@ public abstract class Graph {
 	}
 	
 
+
+
+	
+	
+	
+	
+	
+	/**
+	 * Removes an edge from the graph between given vertices,
+	 * @param startVertex Index of the start point of the edge to be removed. 
+	 * @param endVertex Index of the end point of the edge to be removed. 
+	 */
+	public void removeEdge(Integer startVertex, Integer endVertex) {
+		implementRemoveEdge(startVertex, endVertex);
+		numEdges--;
+	}
+	
+	/**
+	 * Abstract method for implementing removing an edge from the graph.
+	 */
+	public abstract void implementRemoveEdge(Integer startVertex, Integer endVertex);
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	/** Main method provided with some basic tests.  */
 	public static void main (String[] args) {
@@ -240,8 +283,10 @@ public abstract class Graph {
 		
 		System.out.println("****");
 		System.out.println("Roads / intersections:");
-		GraphAdjList graphFromFile = new GraphAdjList();
+		GraphAdjMatrix  graphFromFile = new GraphAdjMatrix();
 		GraphLoader.loadRoadMap("data/testdata/simpletest.map", graphFromFile);
+		graphFromFile.removeEdge(0, 1);
+		graphFromFile.removeEdge(1, 0);
 		System.out.println(graphFromFile);
 		
 		System.out.println("Observe all degrees are <= 12.");
@@ -254,6 +299,11 @@ public abstract class Graph {
 		System.out.println("Flight data:");
 		GraphAdjList airportGraph = new GraphAdjList();
 		GraphLoader.loadRoutes("data/airports/routesUA.dat", airportGraph);
+		
+		airportGraph.removeEdge(8, 6);
+		airportGraph.removeEdge(6, 8);
+		airportGraph.removeEdge(1, 15);
+		
 		System.out.println(airportGraph);
 		System.out.println("Observe most degrees are small (1-30), eight are over 100.");
 		System.out.println("****");
@@ -263,6 +313,7 @@ public abstract class Graph {
 		System.out.println("Testing distance-two methods on sample graphs...");
 		System.out.println("Goal: implement method using two approaches.");
 
+		
 
 		
 	}

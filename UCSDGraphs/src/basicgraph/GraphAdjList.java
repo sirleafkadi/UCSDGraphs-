@@ -87,6 +87,42 @@ public class GraphAdjList extends Graph {
 	}
 	 
 
+	
+	
+	
+	
+	
+	
+    /** 
+	 * Implement the abstract method for removing an edge 
+	 */
+	public void implementRemoveEdge(Integer startVertex, Integer endVertex) {
+	    // TODO: you will implement this method
+           
+	
+		
+	
+		adjListsMap.get(startVertex).remove(endVertex);
+		
+
+		
+	}
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/** 
 	 * Implement the abstract method for finding all 
 	 * vertices reachable by two hops from v.

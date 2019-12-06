@@ -103,6 +103,33 @@ public class GraphAdjMatrix extends Graph {
 	 * @param v the index of vertex.
 	 * @return List<Integer> a list of indices of vertices.  
 	 */	
+	
+	
+	
+	
+	
+	
+	public void implementRemoveEdge(Integer startVertex, Integer endVertex) {
+	    // TODO: you will implement this method
+
+	
+			
+			
+		adjMatrix[startVertex][endVertex]=0;
+		
+		
+	} 
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public List<Integer> getDistance2(int v) {
 		// XXX Implement this method in week 2
 		return null;
